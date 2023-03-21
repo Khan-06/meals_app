@@ -29,8 +29,9 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: const CategoriesScreen(),
-      routes: {'/category_meals': (ctx) => CategoryMealsScreen()},
+      routes: {
+        '/': (ctx) => const CategoriesScreen(),
+        CategoryMealsScreen.screenRoute : (ctx) => CategoryMealsScreen()},
     );
   }
 }

@@ -6,17 +6,18 @@ class CategoryMealsScreen extends StatelessWidget {
   // final String categoryId;
   // final String categoryTitle;
 
+  static const screenRoute =  '/category_meals';
 
   @override
   Widget build(BuildContext context) {
     final routArgs = ModalRoute.of(context)?.settings.arguments as Map<String, String>;
     final categoryTitle = routArgs['title'];
     final categoryId = routArgs['id'];
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Title(color: Colors.black, child:  Text(categoryTitle!)),
+        title: Title(color: Colors.black, child: Text(categoryTitle!)),
       ),
-      body:   Center(child: Text(categoryId!)),
+      body: Center(child: Text(categoryId!)),
     );
   }
 }
