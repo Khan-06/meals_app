@@ -9,7 +9,7 @@ class CategoryMealsScreen extends StatelessWidget {
   // final String categoryId;
   // final String categoryTitle;
 
-  static const screenRoute = '/category_meals';
+  static const routeName = '/category_meals';
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,13 @@ class CategoryMealsScreen extends StatelessWidget {
         ),
         body: ListView.builder(
             itemBuilder: (context, index) {
-              return MealItem(affordability: categoryMeals[index].affordability, title: categoryMeals[index].title, complexity: categoryMeals[index].complexity, duration: categoryMeals[index].duration, imageUrl: categoryMeals[index].imageUrl);
+              return MealItem(
+                  affordability: categoryMeals[index].affordability,
+                  title: categoryMeals[index].title,
+                  complexity: categoryMeals[index].complexity,
+                  duration: categoryMeals[index].duration,
+                  imageUrl: categoryMeals[index].imageUrl,
+                  id: categoryMeals[index].id);
             },
             itemCount: categoryMeals.length));
   }

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meals.dart';
+import '../screens/meal_details_screen.dart';
 
 class MealItem extends StatelessWidget {
   const MealItem(
-      {required this.affordability,
+      {super.key, required this.id,
+      required this.affordability,
       required this.title,
       required this.complexity,
       required this.duration,
@@ -14,16 +16,17 @@ class MealItem extends StatelessWidget {
   final Complexity complexity;
   final Affordability affordability;
   final int duration;
+  final String id;
 
   String get complexityText {
-    switch (complexity){
+    switch (complexity) {
       case Complexity.Simple:
         return 'Simple';
-        case Complexity.Challenging:
+      case Complexity.Challenging:
         return 'Challenging';
-        case Complexity.Hard:
+      case Complexity.Hard:
         return 'Hard';
-        default:
+      default:
         return 'Unknown';
     }
   }
@@ -39,10 +42,14 @@ class MealItem extends StatelessWidget {
     }
   }
 
+  void selectMeal(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(MealDetailScreen.routeName, arguments: id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => selectMeal(context),
       child: Card(
         shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(6)),
         elevation: 4,
@@ -85,26 +92,27 @@ class MealItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Row(
-                  children: [
-                    Icon(Icons.schedule),
-                    const SizedBox(width: 6),
-                    Text('$duration min')
-                  ],
-                ),
+                    children: [
+                      const Icon(Icons.schedule),
+                      const SizedBox(width: 6),
+                      Text('$duration min')
+                    ],
+                  ),
                   Row(
                     children: [
-                      Icon(Icons.work),
+                      const Icon(Icons.work),
                       const SizedBox(width: 6),
                       Text(complexityText)
                     ],
                   ),
                   Row(
                     children: [
-                      Icon(Icons.attach_money),
+                      const Icon(Icons.attach_money),
                       const SizedBox(width: 6),
                       Text(affordabilityText)
                     ],
-                  )],
+                  )
+                ],
               ),
             )
           ],
