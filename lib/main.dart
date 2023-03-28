@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import './screens/Category_Screen.dart';
 import './screens/category_meals_screen.dart';
 import './screens/meal_details_screen.dart';
-import './screens/tabs_screen.dart';
+//import './screens/tabs_screen.dart';
+import './screens/tabs_screen_2.dart';
 
 void main() {
   runApp(const MyApp());
