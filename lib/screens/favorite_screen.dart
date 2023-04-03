@@ -17,7 +17,7 @@ class FavoritesScreen extends StatelessWidget {
            itemBuilder: (context, index) {
              return MealItem(
                affordability: (favoriteMeal[index].affordability),
-               title: (favoriteMeal[index].title),
+               title:  (favoriteMeal[index].title),
                complexity: (favoriteMeal[index].complexity),
                duration: (favoriteMeal[index].duration),
                imageUrl: (favoriteMeal[index].imageUrl),
